@@ -1,0 +1,29 @@
+---
+imports:
+  - { resource: psr-7.yaml }
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Tests\Api\Http\:
+    resource: '%kernel.project_dir%/src/Http/*'
+
+  Shrikeh\ApiContext\Http\EventListener\Psr7Response:
+    tags: [ 'kernel.event_listener' ]
+  _instanceof:
+    Shrikeh\ApiContext\Http\Action:
+      tags:
+        - 'controller.service_arguments'
+
+
+  Symfony\Bridge\PsrHttpMessage\HttpFoundationFactoryInterface: '@Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory'
+  Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory: ~
+  Symfony\Bridge\PsrHttpMessage\HttpMessageFactoryInterface: '@Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory'
+  Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory: ~
+  Symfony\Bridge\PsrHttpMessage\ArgumentValueResolver\PsrServerRequestResolver:
+    tags: [ 'controller.argument_value_resolver' ]
+
+
+

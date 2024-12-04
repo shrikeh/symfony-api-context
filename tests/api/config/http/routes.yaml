@@ -1,0 +1,7 @@
+---
+'tests:http':
+  path: /
+  controller: Tests\Api\Http\Action\TestAction
+  methods:
+    - GET
+    - HEAD
