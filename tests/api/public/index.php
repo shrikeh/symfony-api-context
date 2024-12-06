@@ -2,7 +2,6 @@
 // phpcs:ignoreFile
 declare(strict_types=1);
 
-use Api\Http\Kernel;
 use Shrikeh\ApiContext\Context\Http;
 
 defined('APP_ROOT_DIR_LEVELS') || define('APP_ROOT_DIR_LEVELS', 1);

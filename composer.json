@@ -10,7 +10,8 @@
     "symfony/dependency-injection": "^7.2",
     "symfony/framework-bundle": "^7.2",
     "symfony/http-kernel": "^7.2",
-    "symfony/yaml": "^7.2"
+    "symfony/yaml": "^7.2",
+    "shrikeh/common-app": "^0.3.0"
   },
   "require-dev": {
     "shrikeh/teapot": "^3.0",
@@ -57,5 +58,11 @@
       "cache:clear": "symfony-cmd",
       "assets:install %PUBLIC_DIR%": "symfony-cmd"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/shrikeh/common-app"
+    }
+  ]
 }
