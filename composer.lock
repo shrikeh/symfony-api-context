@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9eadf963410b6cf10eb2b2dd8562e88f",
+    "content-hash": "afdf909060af8e628376f9f5d604bb6c",
     "packages": [
         {
             "name": "nyholm/psr7",
@@ -485,75 +485,7 @@
                     "Shrikeh\\App\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\Utils\\": "tests/utils/src",
-                    "Tests\\Unit\\": "tests/unit/src"
-                }
-            },
-            "scripts": {
-                "post-install-cmd": [
-                    "@install-codestandards"
-                ],
-                "behat": [
-                    "vendor/bin/behat --format progress --format pretty"
-                ],
-                "craft": [
-                    "@test",
-                    "@quality"
-                ],
-                "fix": [
-                    "@phpcbf",
-                    "@psalm:fix",
-                    "@composer normalize"
-                ],
-                "infection": [
-                    "php vendor/bin/roave-infection-static-analysis-plugin --psalm-config psalm.xml --git-diff-base=origin/${GITHUB_BASE_REF:-main} --git-diff-filter=AM --show-mutations --threads=8  --min-covered-msi=${MIN_COVERED_MSI:-100} --min-msi=${MIN_MSI:-100}"
-                ],
-                "install-codestandards": [
-                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
-                ],
-                "metrics": [
-                    "@phpunit:all",
-                    "@phpmetrics"
-                ],
-                "phpcbf": [
-                    "vendor/bin/phpcbf"
-                ],
-                "phpcs": [
-                    "vendor/bin/phpcs"
-                ],
-                "phpmd": [
-                    "vendor/bin/phpmd ./src text ./phpmd.xml.dist"
-                ],
-                "phpmetrics": [
-                    "php -d 'error_reporting=E_ALL ^ E_DEPRECATED' vendor/bin/phpmetrics --config=phpmetrics.yml"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse -c phpstan.neon.dist"
-                ],
-                "phpunit": [
-                    "@phpunit:all",
-                    "@infection"
-                ],
-                "phpunit:all": [
-                    "php -d 'xdebug.coverage=1' -d 'xdebug.mode=coverage' vendor/bin/phpunit --path-coverage --log-junit ${COVERAGE_DIR:-build/logs}/junit.xml --coverage-text  --coverage-html ${DOCS_DIR:-docs}/coverage  --coverage-cobertura ${COVERAGE_DIR:-build/coverage}/cobertura.xml --coverage-clover ${COVERAGE_DIR:-build/coverage}/clover.xml"
-                ],
-                "psalm": [
-                    "vendor/bin/psalm"
-                ],
-                "psalm:fix": [
-                    "vendor/bin/psalm --alter --issues=all --dry-run"
-                ],
-                "quality": [
-                    "@phpcs",
-                    "@phpstan",
-                    "@psalm"
-                ],
-                "test": [
-                    "@phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -565,8 +497,8 @@
             ],
             "description": "Library of common interfaces and traits for Applications",
             "support": {
-                "source": "https://github.com/shrikeh/common-app/tree/0.3.0",
-                "issues": "https://github.com/shrikeh/common-app/issues"
+                "issues": "https://github.com/shrikeh/common-app/issues",
+                "source": "https://github.com/shrikeh/common-app/tree/0.3.0"
             },
             "time": "2024-11-12T12:29:45+00:00"
         },
