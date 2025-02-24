@@ -8,5 +8,4 @@ use Shrikeh\ApiContext\Exception\ContextException;
 
 interface BundleException extends ContextException
 {
-
 }

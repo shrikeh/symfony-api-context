@@ -6,7 +6,7 @@ namespace Shrikeh\ApiContext\Console;
 
 use Psr\Container\ContainerInterface;
 use Shrikeh\ApiContext\Bundle\Traits\ContainerExtension;
-use Shrikeh\ApiContext\Console\Bundle\DependencyInjection\ConsoleExtension;
+use Shrikeh\ApiContext\Console\DependencyInjection\ConsoleExtension;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 final class Bundle extends AbstractBundle

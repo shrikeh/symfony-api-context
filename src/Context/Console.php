@@ -9,7 +9,7 @@ use Shrikeh\ApiContext\Context;
 use Shrikeh\ApiContext\Http\ServiceProvider\Http as HttpServiceProvider;
 use Shrikeh\ApiContext\Kernel\Service;
 
-final readonly class Http implements Context
+final readonly class Console implements Context
 {
     public function __construct(private string $rootDir)
     {

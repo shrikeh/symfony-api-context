@@ -8,5 +8,4 @@ use Shrikeh\ApiContext\Http\Exception\HttpException;
 
 interface ActionException extends HttpException
 {
-
 }

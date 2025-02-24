@@ -3,11 +3,13 @@
 declare(strict_types=1);
 
 namespace Shrikeh\ApiContext\Kernel;
+
 use Generator;
 use Psr\Container\ContainerInterface;
 use Shrikeh\ApiContext\Kernel\Traits\ConfigContainer;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+
 final class DefaultKernel extends BaseKernel
 {
     use MicroKernelTrait, ConfigContainer {

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Shrikeh\ApiContext\Console\Action;
+
 use Symfony\Component\Console\Input\InputDefinition;
 
 /**

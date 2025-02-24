@@ -6,7 +6,6 @@ namespace Shrikeh\ApiContext\Kernel;
 
 enum Service: string
 {
-
     case KERNEL = 'kernel';
     case KERNEL_ENVIRONMENT = 'kernel.environment';
 

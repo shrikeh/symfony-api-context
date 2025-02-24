@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Shrikeh\ApiContext\Exception;
 
-
 /**
  * @author Barney Hanlon <symfony@shrikeh.net>
  */
