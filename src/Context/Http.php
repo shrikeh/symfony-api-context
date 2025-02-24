@@ -6,7 +6,7 @@ namespace Shrikeh\ApiContext\Context;
 
 use Pimple\Container;
 use Shrikeh\ApiContext\Context;
-use Shrikeh\ApiContext\Http\ServiceProvider\Http as HttpServiceProvider;
+use Shrikeh\ApiContext\ServiceProvider\Http as HttpServiceProvider;
 use Shrikeh\ApiContext\Kernel\Service;
 
 final readonly class Http implements Context

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Shrikeh\ApiContext\Http\ServiceProvider;
+namespace Shrikeh\ApiContext\ServiceProvider;
 
 use Generator;
 use Psr\Container\ContainerInterface;
