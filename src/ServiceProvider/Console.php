@@ -87,22 +87,35 @@ final readonly class Console implements ServiceProviderInterface
             );
         };
 
-        $pimple[Service::KERNEL_BUNDLES->key()] = static function (Container $con): Generator {
+        $pimple[Service::KERNEL_BUNDLES->key()] = static function (Container $con): array {
             $contents = require $con[Service::KERNEL_BUNDLES_PATH->key()];
             $environment = $con[Service::KERNEL_ENVIRONMENT->key()];
+            $bundles = [];
             foreach ($contents as $class => $envs) {
                 if ($envs[$environment] ?? $envs[Kernel::ENVS_ALL] ?? false) {
                     if ($con->offsetExists($class)) {
-                        $bundle = $con[$class];
+                        $bundles[$class] = $con[$class];
                     } else {
-                        $bundle = new $class();
+                        $bundles[$class] = new $class();
                     }
-                    yield $class => $bundle;
                 }
             }
+            return $bundles;
         };
 
         $pimple[Service::KERNEL->key()] = static function (Container $con): Kernel {
+
+            return new Kernel(
+                $con[Psr11ServiceLocator::class],
+                $con[Service::KERNEL_ENVIRONMENT->key()],
+                $con[Service::KERNEL_DEBUG->key()],
+            );
+        };
+
+        $pimple[Service::KERNEL_ENVIRONMENT->key()] = $this->environment;
+        $pimple[Service::KERNEL_DEBUG->key()] = $this->debug;
+
+        $pimple[Psr11ServiceLocator::class] = static function (Container $con): Psr11ServiceLocator {
             $services = array_map(static function (Service $service): string {
                 return $service->key();
             }, [
@@ -111,14 +124,9 @@ final readonly class Console implements ServiceProviderInterface
                 Service::KERNEL_CONFIG_DIR,
                 Service::PROJECT_DIR_PATH,
             ]);
-            return new Kernel(
-                new Psr11ServiceLocator($con, $services),
-                $con[Service::KERNEL_ENVIRONMENT->key()],
-                $con[Service::KERNEL_DEBUG->key()],
-            );
-        };
 
-        $pimple[Service::KERNEL_ENVIRONMENT->key()] = $this->environment;
-        $pimple[Service::KERNEL_DEBUG->key()] = $this->debug;
+            return new Psr11ServiceLocator($con, $services);
+        };
     }
+
 }

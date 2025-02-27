@@ -23,7 +23,7 @@ trait ConfigContainer
         return $this->getConfigContainer()->get(Service::PROJECT_DIR_PATH->key());
     }
 
-    public function registerBundles(): Generator
+    public function registerBundles(): iterable
     {
         return $this->getConfigContainer()->get(Service::KERNEL_BUNDLES->key());
     }
